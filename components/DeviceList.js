@@ -11,7 +11,6 @@ export default function DeviceList() {
 
   function handleDismiss() {
     alert("Dismissed: " + selectedId);
-    // BUG: no matter which button you click, always shows "d-3"
   }
 
   return (

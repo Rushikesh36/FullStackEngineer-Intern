@@ -24,8 +24,9 @@ const TABLES = [
   },
 ];
 
-export default function DBQuery() {
-  const [query, setQuery] = useState("");
+export default function DBQuery({ value = "", onChange }) {
+  const query = value;
+  const setQuery = (v) => onChange?.(v);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -155,6 +156,7 @@ export default function DBQuery() {
         <textarea
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+
           onKeyDown={(e) => {
             if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) runQuery();
           }}
@@ -194,7 +196,6 @@ export default function DBQuery() {
       >
         {loading ? "Running..." : "Run query"}
       </button>
-      <span style={{ fontSize: "11px", color: "#9ca3af", marginLeft: "10px" }}>or Ctrl + Enter</span>
 
       {/* Error */}
       {error && (

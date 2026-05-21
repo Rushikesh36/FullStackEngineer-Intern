@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
 
-export default function GitScenario() {
-  const [answer, setAnswer] = useState("");
-  const [showHint, setShowHint] = useState(false);
+export default function GitScenario({ value = "", onChange }) {
+  const answer = value;
+  const setAnswer = (v) => onChange?.(v);
 
   return (
     <div style={{ padding: "2rem", maxWidth: "520px" }}>
@@ -75,6 +74,7 @@ export default function GitScenario() {
         <textarea
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}
+
           spellCheck={false}
           placeholder={"# write your git commands here, one per line\ngit ..."}
           style={{
@@ -95,41 +95,6 @@ export default function GitScenario() {
         />
       </div>
 
-      {/* Hint */}
-      <button
-        onClick={() => setShowHint((h) => !h)}
-        style={{
-          fontSize: "12px",
-          color: "#6b7280",
-          background: "none",
-          border: "1px solid #e5e7eb",
-          borderRadius: "6px",
-          padding: "5px 12px",
-          cursor: "pointer",
-          marginBottom: showHint ? "1rem" : 0,
-        }}
-      >
-        {showHint ? "Hide hint" : "Show hint"}
-      </button>
-
-      {showHint && (
-        <div style={{
-          padding: "12px 14px",
-          borderRadius: "8px",
-          background: "#fefce8",
-          border: "1px solid #fde68a",
-          fontSize: "12px",
-          color: "#92400e",
-          lineHeight: "1.6",
-        }}>
-          <ul style={{ margin: 0, paddingLeft: "16px", display: "flex", flexDirection: "column", gap: "4px" }}>
-            <li><code>git rebase -i HEAD~N</code> lets you edit, squash, or drop past commits</li>
-            <li><code>git rm --cached &lt;file&gt;</code> removes a file from git without deleting it from disk</li>
-            <li>After amending the commit, use <code>git rebase --continue</code> to finish</li>
-            <li>Push with <code>-f</code> only if the branch was already pushed — why?</li>
-          </ul>
-        </div>
-      )}
     </div>
   );
 }
