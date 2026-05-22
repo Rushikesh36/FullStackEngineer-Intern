@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 
-let renderCount = 0; // outside component — never resets during renders
+let renderCount = 0; 
 
 export default function UptimeCounter() {
   const [elapsed, setElapsed] = useState(0);
@@ -11,12 +11,12 @@ export default function UptimeCounter() {
 
   useEffect(() => { setMounted(true); }, []);
 
-  renderCount += 1; // increments every render, no ref needed
+  renderCount += 1;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setElapsed(Date.now() - startTime.current);
-      // BUG: causes full re-render every second
+      setElapsed(((Date.now() - startTime.current)/1000).toFixed(0));
+
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -37,7 +37,7 @@ export default function UptimeCounter() {
         <div style={{ marginBottom: "12px" }}>
           <span style={{ fontSize: "13px", color: "#999" }}>Uptime: </span>
           <span style={{ fontSize: "20px", fontWeight: "500" }}>
-            {(elapsed / 1000).toFixed(0)}s
+            {elapsed} seconds
           </span>
         </div>
         <div style={{

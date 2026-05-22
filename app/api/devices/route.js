@@ -10,7 +10,6 @@ export function GET() {
 export async function POST(request) {
   const body = await request.json();
 
-  // BUG: no validation — name can be empty, status can be any string, location can be missing
   const device = {
     id: Date.now(),
     name: body.name,
@@ -19,5 +18,6 @@ export async function POST(request) {
   };
 
   devices.push(device);
-  return Response.json(device); // always 200, even for garbage input
+  return Response.json(device); 
 }
+

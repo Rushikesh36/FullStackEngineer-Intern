@@ -26,7 +26,6 @@ export default function AlertNotes() {
 
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         {alerts.map((alert, index) => (
-          // BUG: key uses array index — React reuses DOM nodes in wrong order after dismissal
           <div key={index} style={{
             padding: "12px 14px",
             border: "1px solid #e5e7eb",

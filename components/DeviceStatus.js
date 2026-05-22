@@ -10,7 +10,6 @@ export default function DeviceStatus({ deviceId }) {
     fetch(`/api/device?id=${deviceId}`)
       .then((res) => res.json())
       .then((data) => {
-        // BUG: blindly sets device even if API returned an error
         setDevice(data);
         setLoading(false);
       });
@@ -45,21 +44,6 @@ export default function DeviceStatus({ deviceId }) {
         </div>
       </div>
 
-      {/* Raw API response */}
-      {!loading && (
-        <div style={{
-          marginBottom: "1rem",
-          padding: "10px 12px",
-          borderRadius: "6px",
-          background: "#fefce8",
-          border: "1px solid #fde68a",
-          fontSize: "12px",
-          color: "#92400e",
-        }}>
-          <div style={{ marginBottom: "4px", fontWeight: "600" }}>Raw API response:</div>
-          <code>{JSON.stringify(device)}</code>
-        </div>
-      )}
 
       {loading ? (
         <div style={{ fontSize: "13px", color: "#999" }}>Loading...</div>

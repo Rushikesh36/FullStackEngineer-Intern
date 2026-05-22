@@ -11,7 +11,8 @@ export default function DeviceDashboard() {
   const [search, setSearch] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
-  console.log("sort running"); // BUG: prints on every render including dark mode toggle
+  
+  console.log("sort running"); 
 
   const filtered = allDevices
     .filter((d) => d.name.toLowerCase().includes(search.toLowerCase()))
@@ -28,7 +29,8 @@ export default function DeviceDashboard() {
     >
       <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q4 — Device search</h2>
       <p style={{ fontSize: "13px", color: darkMode ? "#aaa" : "#666", marginBottom: "1rem" }}>
-        Open the browser console and toggle dark mode. Why does "sort running"
+        Open the browser console and toggle dark mode. Why does{" "}
+        <code style={{ background: darkMode ? "#333" : "#f3f4f6", padding: "1px 5px", borderRadius: "4px" }}>sort running</code>{" "}
         print even when the search did not change?
       </p>
 

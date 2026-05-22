@@ -54,7 +54,7 @@ export default function RegisterDevice() {
           ))}
         </div>
         <div style={{ marginTop: "6px" }}>
-          <strong>Your task:</strong> Find where the bug is — API or frontend? Fix it so invalid input
+          <strong>Your task:</strong> Find where the bug is, API or frontend? Fix it so invalid input
           returns <code style={{ background: "#e2e8f0", padding: "1px 4px", borderRadius: "4px" }}>400 Bad Request</code> with an error message.
         </div>
       </div>
