@@ -7,7 +7,7 @@ export default function GitScenario({ value = "", onChange }) {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "520px" }}>
-      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q8 — Git: clean up and ship</h2>
+      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q7 — Git: clean up and ship</h2>
 
       {/* Scenario */}
       <div style={{

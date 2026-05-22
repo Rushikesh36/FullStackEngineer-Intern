@@ -17,7 +17,7 @@ export default function DeviceStatus({ deviceId }) {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "400px" }}>
-      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q6 — Device lookup</h2>
+      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q5 — Device lookup</h2>
       <p style={{ fontSize: "13px", color: "#666", marginBottom: "1rem" }}>
         The component below fetches <code style={{ background: "#f3f4f6", padding: "1px 5px", borderRadius: "4px" }}>device-99</code>,
         which does not exist in the API. It should show an error message — but it does not.

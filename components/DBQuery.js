@@ -53,7 +53,7 @@ export default function DBQuery({ value = "", onChange }) {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "560px" }}>
-      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q9 — SQL: query device alerts</h2>
+      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q8 — SQL: query device alerts</h2>
 
       {/* Task */}
       <div style={{

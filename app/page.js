@@ -5,7 +5,6 @@ import DeviceList from "../components/DeviceList";
 import AcknowledgeCounter from "../components/AcknowledgeCounter";
 import UptimeCounter from "../components/UptimeCounter";
 import DeviceDashboard from "../components/DeviceDashboard";
-import AlertFeedWrapper from "../components/AlertFeedWrapper";
 import DeviceStatus from "../components/DeviceStatus";
 import RegisterDevice from "../components/RegisterDevice";
 import GitScenario from "../components/GitScenario";
@@ -80,16 +79,6 @@ const QUESTIONS = [
   },
   {
     number: 5,
-    title: "Missing Effect Cleanup",
-    short: "Effect Cleanup",
-    tags: ["React", "WebSockets"],
-    difficulty: "medium",
-    description: "Mount and unmount this component a few times. Each time it mounts, it opens a new connection — but old ones never close. After a few cycles the alerts start arriving in multiples.",
-    files: ["components/AlertFeedWrapper.js", "components/AlertFeed.js"],
-    component: AlertFeedWrapper,
-  },
-  {
-    number: 6,
     title: "Wrong HTTP Status Code",
     short: "HTTP Status Code",
     tags: ["Backend", "HTTP"],
@@ -100,7 +89,7 @@ const QUESTIONS = [
     props: { deviceId: "device-99" },
   },
   {
-    number: 7,
+    number: 6,
     title: "Missing Server-Side Validation",
     short: "Input Validation",
     tags: ["Backend", "Validation"],
@@ -110,7 +99,7 @@ const QUESTIONS = [
     component: RegisterDevice,
   },
   {
-    number: 8,
+    number: 7,
     title: "Rewriting Git History",
     short: "Git History",
     tags: ["Git"],
@@ -120,7 +109,7 @@ const QUESTIONS = [
     component: GitScenario,
   },
   {
-    number: 9,
+    number: 8,
     title: "SQL JOIN and Filtering",
     short: "SQL JOIN",
     tags: ["SQL"],
@@ -130,7 +119,7 @@ const QUESTIONS = [
     component: DBQuery,
   },
   {
-    number: 10,
+    number: 9,
     title: "Index as Key",
     short: "Index as Key",
     tags: ["React", "Keys"],
