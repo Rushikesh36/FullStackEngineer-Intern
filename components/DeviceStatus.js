@@ -17,10 +17,10 @@ export default function DeviceStatus({ deviceId }) {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "400px" }}>
-      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q5 — Device lookup</h2>
+      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q5. Device lookup</h2>
       <p style={{ fontSize: "13px", color: "#666", marginBottom: "1rem" }}>
         The component below fetches <code style={{ background: "#f3f4f6", padding: "1px 5px", borderRadius: "4px" }}>device-99</code>,
-        which does not exist in the API. It should show an error message — but it does not.
+        which does not exist in the API. It should show an error message, but it does not.
       </p>
 
       {/* Context block */}
@@ -37,7 +37,7 @@ export default function DeviceStatus({ deviceId }) {
         gap: "6px",
       }}>
         <div><strong>Scenario:</strong> A client requests a device ID that does not exist.</div>
-        <div><strong>Expected:</strong> API returns <code style={{ background: "#e2e8f0", padding: "1px 4px", borderRadius: "3px" }}>404 Not Found</code> → UI shows an error message.</div>
+        <div><strong>Expected:</strong> API returns <code style={{ background: "#e2e8f0", padding: "1px 4px", borderRadius: "3px" }}>404 Not Found</code></div>
         <div><strong>Actual:</strong> Open the Network tab and check the status code on <code style={{ background: "#e2e8f0", padding: "1px 4px", borderRadius: "3px" }}>GET /api/device?id=device-99</code>.</div>
         <div style={{ borderTop: "1px solid #e2e8f0", paddingTop: "6px" }}>
           <strong>Your task:</strong> Find the bug in both the API route and this component. Fix both.

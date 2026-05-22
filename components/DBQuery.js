@@ -26,10 +26,21 @@ const TABLES = [
 
 export default function DBQuery({ value = "", onChange }) {
   const query = value;
-  const setQuery = (v) => onChange?.(v);
+  const setQuery = (v) => { onChange?.(v); setSubmitStatus("idle"); };
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState("idle");
+
+  async function submitAnswer() {
+    setSubmitStatus("saving");
+    await fetch("/api/save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ key: "sql-answer", content: query }),
+    });
+    setSubmitStatus("saved");
+  }
 
   async function runQuery() {
     setLoading(true);
@@ -53,7 +64,7 @@ export default function DBQuery({ value = "", onChange }) {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "560px" }}>
-      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q8 — SQL: query device alerts</h2>
+      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q8.SQL: query device alerts</h2>
 
       {/* Task */}
       <div style={{
@@ -180,22 +191,39 @@ export default function DBQuery({ value = "", onChange }) {
         />
       </div>
 
-      <button
-        onClick={runQuery}
-        disabled={loading || !query.trim()}
-        style={{
-          padding: "7px 20px",
-          background: query.trim() ? "#111" : "#e5e7eb",
-          color: query.trim() ? "#fff" : "#9ca3af",
-          border: "none",
-          borderRadius: "6px",
-          fontSize: "13px",
-          cursor: query.trim() ? "pointer" : "default",
-          marginBottom: "1.25rem",
-        }}
-      >
-        {loading ? "Running..." : "Run query"}
-      </button>
+      <div style={{ display: "flex", gap: "8px", marginBottom: "1.25rem" }}>
+        <button
+          onClick={runQuery}
+          disabled={loading || !query.trim()}
+          style={{
+            padding: "7px 20px",
+            background: query.trim() ? "#111" : "#e5e7eb",
+            color: query.trim() ? "#fff" : "#9ca3af",
+            border: "none",
+            borderRadius: "6px",
+            fontSize: "13px",
+            cursor: query.trim() ? "pointer" : "default",
+          }}
+        >
+          {loading ? "Running..." : "Run query"}
+        </button>
+
+        <button
+          onClick={submitAnswer}
+          disabled={submitStatus === "saving" || !query.trim()}
+          style={{
+            padding: "7px 20px",
+            background: query.trim() ? "#111" : "#e5e7eb",
+            color: query.trim() ? "#fff" : "#9ca3af",
+            border: "none",
+            borderRadius: "6px",
+            fontSize: "13px",
+            cursor: query.trim() ? "pointer" : "default",
+          }}
+        >
+          {submitStatus === "saving" ? "Saving…" : submitStatus === "saved" ? "Saved ✓" : "Submit answer"}
+        </button>
+      </div>
 
       {/* Error */}
       {error && (

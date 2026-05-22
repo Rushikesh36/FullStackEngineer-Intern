@@ -30,7 +30,7 @@ export default function RegisterDevice() {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "480px" }}>
-      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q6 — Register a device</h2>
+      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q6. Register a device</h2>
       <p style={{ fontSize: "13px", color: "#666", marginBottom: "1rem" }}>
         Try submitting the form with an <strong>empty name</strong>, or type{" "}
         <code style={{ background: "#f3f4f6", padding: "1px 5px", borderRadius: "4px" }}>superonline</code>{" "}

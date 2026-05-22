@@ -23,9 +23,9 @@ export default function UptimeCounter() {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "400px" }}>
-      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q3 — Device uptime</h2>
+      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q3.Device uptime</h2>
       <p style={{ fontSize: "13px", color: "#666", marginBottom: "1rem" }}>
-        Watch the render count. It should NOT increase every second — but it does.
+        Watch the render count. It should NOT increase every second, but it does.
       </p>
       <div
         style={{

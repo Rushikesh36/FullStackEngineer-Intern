@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Software Co-op Technical Assessment",
+  title: "Full Stack Engineer (Intern) Assessment",
   description: "Find it, explain it, fix it.",
 };
 

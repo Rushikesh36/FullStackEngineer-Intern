@@ -15,7 +15,7 @@ export default function DeviceList() {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "400px" }}>
-      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q1 — Dismiss a device</h2>
+      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q1. Dismiss a device</h2>
       <p style={{ fontSize: "13px", color: "#666", marginBottom: "1rem" }}>
         Click any Dismiss button. Notice which ID appears in the alert.
       </p>

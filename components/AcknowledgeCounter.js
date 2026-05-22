@@ -12,9 +12,9 @@ export default function AcknowledgeCounter() {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "400px" }}>
-      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q2 — Acknowledge alerts</h2>
+      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q2. Acknowledge alerts</h2>
       <p style={{ fontSize: "13px", color: "#666", marginBottom: "1rem" }}>
-        Click the button 3 times quickly. The count should reach 3 — does it?
+        Click the button 3 times quickly. The count should reach 3, does it?
       </p>
       <div
         style={{

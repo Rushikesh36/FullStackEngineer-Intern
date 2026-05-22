@@ -7,7 +7,7 @@ import UptimeCounter from "../components/UptimeCounter";
 import DeviceDashboard from "../components/DeviceDashboard";
 import DeviceStatus from "../components/DeviceStatus";
 import RegisterDevice from "../components/RegisterDevice";
-import GitScenario from "../components/GitScenario";
+import QueueScenario from "../components/QueueScenario";
 import DBQuery from "../components/DBQuery";
 import AlertNotes from "../components/AlertNotes";
 
@@ -43,7 +43,7 @@ const QUESTIONS = [
     short: "Closure in a Loop",
     tags: ["JavaScript", "Closures"],
     difficulty: "easy",
-    description: "Click any of the buttons below. They all show the same number — but they shouldn't. Each button was created inside a loop, and something about how that loop captured the value went wrong.",
+    description: "Click any of the buttons below. They all show the same number, but they shouldn't. Each button was created inside a loop, and something about how that loop captured the value went wrong.",
     files: ["components/DeviceList.js"],
     component: DeviceList,
   },
@@ -63,7 +63,7 @@ const QUESTIONS = [
     short: "State vs. Ref",
     tags: ["React", "Performance"],
     difficulty: "medium",
-    description: "This component tracks how many times it has rendered. Watch the number — it goes up more than it should, and every increment causes another render. The value doesn't need to live where it does.",
+    description: "This component tracks how many times it has rendered. Watch the number, it goes up more than it should, and every increment causes another render. The value doesn't need to live where it does.",
     files: ["components/UptimeCounter.js"],
     component: UptimeCounter,
   },
@@ -94,19 +94,19 @@ const QUESTIONS = [
     short: "Input Validation",
     tags: ["Backend", "Validation"],
     difficulty: "easy",
-    description: "Leave the name blank, or type anything you want in the status field. The API accepts it without complaint. The server should be the last line of defense — right now it isn't.",
+    description: "Leave the name blank, or type anything you want in the status field. The API accepts it without complaint. The server should be the last line of defense, right now it isn't.",
     files: ["app/api/devices/route.js", "components/RegisterDevice.js"],
     component: RegisterDevice,
   },
   {
     number: 7,
-    title: "Rewriting Git History",
-    short: "Git History",
-    tags: ["Git"],
+    title: "Webhook Overload",
+    short: "Webhook Overload",
+    tags: ["Backend", "System Design"],
     difficulty: "medium",
-    description: "A developer pushed a commit that included .env.local by mistake. The file was deleted in the next commit, but the secret is still sitting in history. The branch has not been merged yet.",
+    description: "The alert webhook does everything synchronously, DB write, email, real-time event and collapses under 600 requests/second. Describe how you'd redesign the architecture so no alert is ever dropped, critical alerts are prioritized, and the webhook always responds quickly.",
     files: [],
-    component: GitScenario,
+    component: QueueScenario,
   },
   {
     number: 8,
@@ -114,7 +114,7 @@ const QUESTIONS = [
     short: "SQL JOIN",
     tags: ["SQL"],
     difficulty: "medium",
-    description: "Two tables — devices and alerts. Write a query that pulls the one unacknowledged critical alert from the Warehouse, and include the device name alongside it.",
+    description: "Two tables, devices and alerts. Write a query that pulls the one unacknowledged critical alert from the Warehouse, and include the device name alongside it.",
     files: [],
     component: DBQuery,
   },
@@ -124,7 +124,7 @@ const QUESTIONS = [
     short: "Index as Key",
     tags: ["React", "Keys"],
     difficulty: "easy",
-    description: "Type a note into the first alert card, then dismiss it. The note doesn't go away — it moves down to the next card. React is reusing the wrong DOM node.",
+    description: "Type a note into the first alert card, then dismiss it. The note doesn't go away, it moves down to the next card. React is reusing the wrong DOM node.",
     files: ["components/AlertNotes.js"],
     component: AlertNotes,
   },
@@ -205,7 +205,6 @@ function Sidebar({ questions, currentIndex, onSelect }) {
               onMouseEnter={(e) => { if (!active) e.currentTarget.style.background = C.hoverBg; }}
               onMouseLeave={(e) => { if (!active) e.currentTarget.style.background = "transparent"; }}
             >
-              {/* Number */}
               <span style={{
                 fontSize: "0.75rem",
                 fontWeight: 700,
@@ -216,8 +215,6 @@ function Sidebar({ questions, currentIndex, onSelect }) {
               }}>
                 {String(q.number).padStart(2, "0")}
               </span>
-
-              {/* Title */}
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{
                   fontSize: "0.875rem",
@@ -246,8 +243,8 @@ function QuestionContent({ q, answers, setAnswers }) {
   const Component = q.component;
 
   const extraProps =
-    q.number === 8 ? { value: answers.gitAnswer, onChange: (v) => setAnswers((a) => ({ ...a, gitAnswer: v })) } :
-    q.number === 9 ? { value: answers.sqlQuery,  onChange: (v) => setAnswers((a) => ({ ...a, sqlQuery: v })) } :
+    q.number === 7 ? { value: answers.queueAnswer, onChange: (v) => setAnswers((a) => ({ ...a, queueAnswer: v })) } :
+    q.number === 8 ? { value: answers.sqlQuery,    onChange: (v) => setAnswers((a) => ({ ...a, sqlQuery: v })) } :
     {};
 
   return (
@@ -323,8 +320,7 @@ function QuestionContent({ q, answers, setAnswers }) {
 export default function HomePage() {
   const [started, setStarted] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers] = useState({ gitAnswer: "", sqlQuery: "" });
-
+  const [answers, setAnswers] = useState({sqlQuery: "", queueAnswer: "" });
   function select(i) {
     setCurrentIndex(i);
   }
@@ -349,7 +345,7 @@ export default function HomePage() {
             lineHeight: 1.2,
             marginBottom: 12,
           }}>
-            Software Co-op<br />Technical Assessment
+            Full Stack Engineer (Intern)<br />Technical Assessment
           </h1>
           
           {/* Stats */}

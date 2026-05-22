@@ -20,7 +20,7 @@ export default function GitHubIssues() {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "400px" }}>
-      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q7 — GitHub issues feed</h2>
+      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q7. GitHub issues feed</h2>
       <p style={{ fontSize: "13px", color: "#666", marginBottom: "1rem" }}>
         This route fetches open issues from the{" "}
         <code style={{ background: "#f3f4f6", padding: "1px 5px", borderRadius: "4px" }}>

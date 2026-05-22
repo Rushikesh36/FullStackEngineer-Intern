@@ -18,7 +18,7 @@ export default function AlertNotes() {
 
   return (
     <div style={{ padding: "2rem", maxWidth: "480px" }}>
-      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q9 — Alert notes</h2>
+      <h2 style={{ marginBottom: "1rem", fontSize: "16px" }}>Q9. Alert notes</h2>
       <p style={{ fontSize: "13px", color: "#666", marginBottom: "1rem" }}>
         Type a note into the <strong>first</strong> input, then dismiss the{" "}
         <strong>first</strong> alert. Watch where your note ends up.
