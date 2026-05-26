@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function QueueScenario({ value = "", onChange }) {
+export default function Scenario({ value = "", onChange }) {
   const answer = value;
   const setAnswer = (v) => onChange?.(v);
   const [status, setStatus] = useState("idle"); // "idle" | "saving" | "saved"

@@ -7,7 +7,7 @@ import UptimeCounter from "../components/UptimeCounter";
 import DeviceDashboard from "../components/DeviceDashboard";
 import DeviceStatus from "../components/DeviceStatus";
 import RegisterDevice from "../components/RegisterDevice";
-import QueueScenario from "../components/QueueScenario";
+import Scenario from "../components/Scenario";
 import DBQuery from "../components/DBQuery";
 import AlertNotes from "../components/AlertNotes";
 
@@ -106,7 +106,7 @@ const QUESTIONS = [
     difficulty: "medium",
     description: "The alert webhook does everything synchronously, DB write, email, real-time event and collapses under 600 requests/second. Describe how you'd redesign the architecture so no alert is ever dropped, critical alerts are prioritized, and the webhook always responds quickly.",
     files: [],
-    component: QueueScenario,
+    component: Scenario,
   },
   {
     number: 8,
