@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 const allDevices = Array.from({ length: 200 }, (_, i) => ({
   id: `d-${i}`,
@@ -12,11 +12,14 @@ export default function DeviceDashboard() {
   const [darkMode, setDarkMode] = useState(false);
 
 
-  console.log("sort running"); 
+  
 
-  const filtered = allDevices
+  const filtered = useMemo(() => {
+    console.log("sort running"); 
+    return allDevices
     .filter((d) => d.name.toLowerCase().includes(search.toLowerCase()))
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => a.name.localeCompare(b.name))
+  },[search]);
 
   return (
     <div

@@ -7,10 +7,8 @@ export default function DeviceList() {
     { id: "d-3", name: "Bedroom" },
   ];
 
-  let selectedId;
-
-  function handleDismiss() {
-    alert("Dismissed: " + selectedId);
+  function handleDismiss(id) {
+    alert("Dismissed: " + id);
   }
 
   return (
@@ -21,7 +19,6 @@ export default function DeviceList() {
       </p>
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         {devices.map((device) => {
-          selectedId = device.id;
           return (
             <div
               key={device.id}
@@ -35,7 +32,7 @@ export default function DeviceList() {
               }}
             >
               <span style={{ fontSize: "14px" }}>{device.name}</span>
-              <button onClick={handleDismiss}>Dismiss</button>
+              <button onClick={() => handleDismiss(device.id)}>Dismiss</button>
             </div>
           );
         })}

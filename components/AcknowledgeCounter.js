@@ -6,8 +6,10 @@ export default function AcknowledgeCounter() {
   const [count, setCount] = useState(0);
 
   async function handleAcknowledge() {
-    await new Promise((res) => setTimeout(res, 1000));
-    setCount(count + 1);
+    
+    await new Promise((res) => setTimeout((res), 1000));
+    setCount(count => count + 1);
+    
   }
 
   return (

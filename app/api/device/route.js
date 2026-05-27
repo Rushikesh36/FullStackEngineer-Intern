@@ -7,5 +7,8 @@ export async function GET(request) {
     "device-2": { id: "device-2", name: "Kitchen Hub", status: "offline", temp: "19°C" },
     "device-3": { id: "device-3", name: "Bedroom Monitor", status: "online", temp: "21°C" },
   };
-  return Response.json(devices[id] ?? { error: "Device not found" });
+  console.log(devices[id])
+
+
+  return Response.json(devices[id] === undefined ? { status: 404 } : { status: 200});
 }

@@ -9,7 +9,17 @@ export function GET() {
 
 export async function POST(request) {
   const body = await request.json();
+  const {name, status, location} = body
 
+  if (name == ''){
+    return Response.json({status: 400}, {body: "Name field is empty"})
+  }
+  if (status != 'online' || status != 'offline'){
+    return Response.json({status: 400}, {body: "status should be either online or offline"})
+  }
+  if (location == ''){
+    return Response.json({status: 400}, {body: "location field is empty"})
+  }
   const device = {
     id: Date.now(),
     name: body.name,

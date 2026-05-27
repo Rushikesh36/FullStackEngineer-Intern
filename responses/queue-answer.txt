@@ -1,0 +1,4 @@
+The issue with current design is we service every request as it comes.
+Solution - We put a message queueing service in between, the worker will pick every request and serve it and no request gets lost , all requests are served in order.
+For critical requests we prioritize them and process them faster than other requests.
+If any request fails, we store them in a separate queue, and whenever that particular service is live again, we start to process it from the error queue and put it back to the main queue

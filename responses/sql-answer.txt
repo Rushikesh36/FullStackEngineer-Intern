@@ -1,0 +1,3 @@
+SELECT d.name, a.severity, a.message, a.created_at
+FROM devices d JOIN alerts a ON (d.id = a.device_id)
+WHERE d.location = 'Warehouse' and d.status = 'online'

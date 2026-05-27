@@ -5,18 +5,20 @@ import { useState, useEffect, useRef } from "react";
 let renderCount = 0; 
 
 export default function UptimeCounter() {
-  const [elapsed, setElapsed] = useState(0);
+  // const [elapsed, setElapsed] = useState(0);
   const [mounted, setMounted] = useState(false);
   const startTime = useRef(Date.now());
+  const elapsedSpan = useRef()
 
   useEffect(() => { setMounted(true); }, []);
 
   renderCount += 1;
 
   useEffect(() => {
+    let elapsed = 0
     const interval = setInterval(() => {
-      setElapsed(((Date.now() - startTime.current)/1000).toFixed(0));
-
+      elapsed += 1
+      elapsedSpan.currentValue.textContent = ((Date.now() - startTime.current)/1000).toFixed(0)
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -36,8 +38,8 @@ export default function UptimeCounter() {
       >
         <div style={{ marginBottom: "12px" }}>
           <span style={{ fontSize: "13px", color: "#999" }}>Uptime: </span>
-          <span style={{ fontSize: "20px", fontWeight: "500" }}>
-            {elapsed} seconds
+          <span ref={elapsedSpan} style={{ fontSize: "20px", fontWeight: "500" }}>
+             
           </span>
         </div>
         <div style={{

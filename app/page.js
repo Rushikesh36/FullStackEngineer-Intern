@@ -86,7 +86,7 @@ const QUESTIONS = [
     description: "The device being fetched does not exist, but look at what the API sends back. The status code says everything went fine. The frontend believes it.",
     files: ["app/api/device/route.js", "components/DeviceStatus.js"],
     component: DeviceStatus,
-    props: { deviceId: "device-99" },
+    props: { deviceId: "device-009" },
   },
   {
     number: 6,

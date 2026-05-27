@@ -25,8 +25,8 @@ export default function AlertNotes() {
       </p>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        {alerts.map((alert, index) => (
-          <div key={index} style={{
+        {alerts.map((alert) => (
+          <div key={alert.id} style={{
             padding: "12px 14px",
             border: "1px solid #e5e7eb",
             borderRadius: "8px",
